@@ -6,6 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="876d5a9a235843c29290b639dc5d9e8a" Name="Diagram1">
         <EntityTypeShape EntityType="MvcCRUDModel.Employee" Width="1.5" PointX="1.625" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MvcCRUDModel.Simcard" Width="1.5" PointX="4.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

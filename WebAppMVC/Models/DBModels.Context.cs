@@ -26,5 +26,6 @@ namespace WebAppMVC.Models
         }
     
         public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<Simcard> Simcards { get; set; }
     }
 }

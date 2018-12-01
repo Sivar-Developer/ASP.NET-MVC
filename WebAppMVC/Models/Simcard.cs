@@ -12,13 +12,11 @@ namespace WebAppMVC.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Employee
+    public partial class Simcard
     {
-        public int EmployeeID { get; set; }
-        public string Name { get; set; }
-        public string Position { get; set; }
-        public string Office { get; set; }
-        public Nullable<int> Age { get; set; }
-        public Nullable<int> Salary { get; set; }
+        public int SimcardID { get; set; }
+        public Nullable<int> Number { get; set; }
+        public byte[] CustomerName { get; set; }
+        public Nullable<int> EmployeeID { get; set; }
     }
 }
