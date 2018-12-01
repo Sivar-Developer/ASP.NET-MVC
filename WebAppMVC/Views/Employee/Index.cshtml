@@ -44,7 +44,7 @@
                     { "data": "Salary" },
                     {
                         "data": "EmployeeID", "render": function (data) {
-                        return `<a class='btn btn-light btn-sm' onclick="PopupForm('/Employee/AddOrEdit/${data}')"><i class='fa fa-pencil'></i> Edit</a><a class='btn btn-danger btn-sm text-default text-light' style='margin-left:5px;'><i class='fa fa-trash'></i> Delete</a>`
+                        return `<a class='btn btn-light btn-sm' onclick="PopupForm('/Employee/AddOrEdit/${data}')"><i class='fa fa-pencil'></i> Edit</a><a class='btn btn-danger btn-sm text-default text-light' style='margin-left:5px;' onclick=Delete("${data}")><i class='fa fa-trash'></i> Delete</a>`
                         },
                         "orderable": false,
                         "searchable": false,
@@ -97,6 +97,25 @@
                 });
             }
             return false;
+        }
+
+        function Delete(id) {
+            if (confirm('Are you sure to delete this Employee record?')) {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Delete", "Employee")/' + id,
+                    success: function (data) {
+                        if (data.success) {
+                            dataTable.ajax.reload();
+
+                            $.notify(data.message, {
+                                globalPosition: "top center",
+                                className: "success"
+                            })
+                        }
+                    }
+                });
+            }
         }
     </script>
 }
