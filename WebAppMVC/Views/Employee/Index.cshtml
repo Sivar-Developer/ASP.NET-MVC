@@ -15,6 +15,7 @@
             <th>Office</th>
             <th>Age</th>
             <th>Salary</th>
+            <th></th>
         </tr>
     </thead>
 </table>
@@ -41,6 +42,13 @@
                     { "data": "Office" },
                     { "data": "Age" },
                     { "data": "Salary" },
+                    {
+                        "data": "EmployeeID", "render": function () {
+                            return "<a class='btn btn-light btn-sm'><i class='fa fa-pencil'></i> Edit</a><a class='btn btn-danger btn-sm text-default text-light' style='margin-left:5px;'><i class='fa fa-trash'></i> Delete</a>"
+                        },
+                        "orderable": false,
+                        "width": "150px"
+                    }
                 ],
                 "language": {
                     "emptyTable": "No Records"
@@ -78,6 +86,11 @@
                         if (data.success) {
                             Popup.dialog('close');
                             dataTable.ajax.reload();
+
+                            $.notify(data.message, {
+                                globalPosition: "top center",
+                                className: "success"
+                            })
                         }
                     }
                 });
