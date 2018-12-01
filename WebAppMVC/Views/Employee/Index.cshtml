@@ -43,10 +43,11 @@
                     { "data": "Age" },
                     { "data": "Salary" },
                     {
-                        "data": "EmployeeID", "render": function () {
-                            return "<a class='btn btn-light btn-sm'><i class='fa fa-pencil'></i> Edit</a><a class='btn btn-danger btn-sm text-default text-light' style='margin-left:5px;'><i class='fa fa-trash'></i> Delete</a>"
+                        "data": "EmployeeID", "render": function (data) {
+                        return `<a class='btn btn-light btn-sm' onclick="PopupForm('/Employee/AddOrEdit/${data}')"><i class='fa fa-pencil'></i> Edit</a><a class='btn btn-danger btn-sm text-default text-light' style='margin-left:5px;'><i class='fa fa-trash'></i> Delete</a>`
                         },
                         "orderable": false,
+                        "searchable": false,
                         "width": "150px"
                     }
                 ],
