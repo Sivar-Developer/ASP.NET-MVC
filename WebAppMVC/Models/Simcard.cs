@@ -18,5 +18,7 @@ namespace WebAppMVC.Models
         public Nullable<int> Number { get; set; }
         public byte[] CustomerName { get; set; }
         public Nullable<int> EmployeeID { get; set; }
+
+        public Employee Employee { get; set; }
     }
 }

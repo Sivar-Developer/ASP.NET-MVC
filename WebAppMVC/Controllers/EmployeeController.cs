@@ -70,5 +70,19 @@ namespace WebAppMVC.Controllers
                 return Json(new { success = true, message = "Deleted Successfully" }, JsonRequestBehavior.AllowGet);
             }
         }
+
+        [HttpGet]
+        public ActionResult Show(int id = 0)
+        {
+            if (id == 0)
+                return View(new Employee());
+            else
+            {
+                using (DBModel db = new DBModel())
+                {
+                    return View(db.Employees.Where(x => x.EmployeeID == id).FirstOrDefault<Employee>());
+                }
+            }
+        }
     }
 }

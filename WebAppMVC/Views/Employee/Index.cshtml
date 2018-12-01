@@ -44,11 +44,13 @@
                     { "data": "Salary" },
                     {
                         "data": "EmployeeID", "render": function (data) {
-                        return `<a class='btn btn-light btn-sm' onclick="PopupForm('/Employee/AddOrEdit/${data}')"><i class='fa fa-pencil'></i> Edit</a><a class='btn btn-danger btn-sm text-default text-light' style='margin-left:5px;' onclick=Delete("${data}")><i class='fa fa-trash'></i> Delete</a>`
+                            return `<a class='btn btn-light btn-sm' href="@Url.Action("show", "Employee")/${data}"><i class='fa fa-eye'></i> Details</a>
+                                    <a class='btn btn-light btn-sm' onclick="PopupForm('/Employee/AddOrEdit/${data}')"><i class='fa fa-pencil'></i> Edit</a>
+                                    <a class='btn btn-danger btn-sm text-default text-light' style='margin-left:5px;' onclick=Delete("${data}")><i class='fa fa-trash'></i> Delete</a>`
                         },
                         "orderable": false,
                         "searchable": false,
-                        "width": "150px"
+                        "width": "240px"
                     }
                 ],
                 "language": {
