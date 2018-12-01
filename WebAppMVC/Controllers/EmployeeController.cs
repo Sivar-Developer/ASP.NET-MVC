@@ -31,9 +31,14 @@ namespace WebAppMVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddOrEdit()
+        public ActionResult AddOrEdit(Employee emp)
         {
-            return View();
+            using (DBModel db = new DBModel())
+            {
+                db.Employees.Add(emp);
+                db.SaveChanges();
+                return Json(new { success=true, message="Save Successfuly"}, JsonRequestBehavior.AllowGet);
+            }
         }
     }
 }
