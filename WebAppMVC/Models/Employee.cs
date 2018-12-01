@@ -20,7 +20,5 @@ namespace WebAppMVC.Models
         public string Office { get; set; }
         public Nullable<int> Age { get; set; }
         public Nullable<int> Salary { get; set; }
-
-        public ICollection<Simcard> Simcard { get; set; }
     }
 }

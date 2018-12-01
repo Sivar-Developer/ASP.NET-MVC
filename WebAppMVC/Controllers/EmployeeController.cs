@@ -84,5 +84,20 @@ namespace WebAppMVC.Controllers
                 }
             }
         }
+
+        [HttpGet]
+        public ActionResult GetSimcards(int id = 0)
+        {
+            if (id == 0)
+                return View(new Employee());
+            else
+            {
+                using (DBModel db = new DBModel())
+                {
+                    List<Simcard> simcards = db.Simcards.Where(x => x.EmployeeID == id).ToList<Simcard>();
+                    return Json(new { data = simcards }, JsonRequestBehavior.AllowGet);
+                }
+            }
+        }
     }
 }

@@ -11,14 +11,16 @@ namespace WebAppMVC.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public partial class Simcard
     {
         public int SimcardID { get; set; }
-        public Nullable<int> Number { get; set; }
-        public byte[] CustomerName { get; set; }
-        public Nullable<int> EmployeeID { get; set; }
+        public Nullable<decimal> Number { get; set; }
+        public string CustomerName { get; set; }
 
+        public Nullable<int> EmployeeID { get; set; }
+        [ForeignKey("EmployeeID")]
         public Employee Employee { get; set; }
     }
 }

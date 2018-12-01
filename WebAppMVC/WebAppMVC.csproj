@@ -180,6 +180,7 @@
     <Compile Include="Models\Employee.cs">
       <DependentUpon>DBModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProjectDbContext.cs" />
     <Compile Include="Models\Simcard.cs">
       <DependentUpon>DBModels.tt</DependentUpon>
     </Compile>
