@@ -330,6 +330,7 @@
     <Content Include="Views\Employee\AddOrEdit.cshtml" />
     <Content Include="Views\Employee\Show.cshtml" />
     <Content Include="Views\Simcard\AddOrEdit.cshtml" />
+    <Content Include="Views\Simcard\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

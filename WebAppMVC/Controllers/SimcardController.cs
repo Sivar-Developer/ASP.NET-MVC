@@ -17,33 +17,34 @@ namespace WebAppMVC.Controllers
         }
 
         [HttpGet]
-        public ActionResult AddOrEdit(int id = 0)
+        public ActionResult AddOrEdit(int id = 0,int simId = 0)
         {
-            if (id == 0)
+            ViewBag.Id = id;
+            if (simId == 0)
                 return View(new Simcard());
             else
             {
                 using (DBModel db = new DBModel())
                 {
-                    return View(db.Simcards.Where(model => model.EmployeeID == id).FirstOrDefault<Simcard>());
+                    return View(db.Simcards.Where(x => x.SimcardID == simId).Where(x => x.EmployeeID == id).FirstOrDefault<Simcard>());
                 }
             }
         }
 
         [HttpPost]
-        public ActionResult AddOrEdit(Employee emp)
+        public ActionResult AddOrEdit(Simcard simcard)
         {
             using (DBModel db = new DBModel())
             {
-                if (emp.EmployeeID == 0)
+                if (simcard.SimcardID == 0)
                 {
-                    db.Employees.Add(emp);
+                    db.Simcards.Add(simcard);
                     db.SaveChanges();
                     return Json(new { success = true, message = "Save Successfuly" }, JsonRequestBehavior.AllowGet);
                 }
                 else
                 {
-                    db.Entry(emp).State = EntityState.Modified;
+                    db.Entry(simcard).State = EntityState.Modified;
                     db.SaveChanges();
                     return Json(new { success = true, message = "Update Successfuly" }, JsonRequestBehavior.AllowGet);
                 }

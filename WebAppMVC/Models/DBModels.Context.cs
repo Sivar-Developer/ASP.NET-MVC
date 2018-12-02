@@ -10,10 +10,9 @@
 namespace WebAppMVC.Models
 {
     using System;
-    using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-
+    
     public partial class DBModel : DbContext
     {
         public DBModel()
@@ -28,6 +27,5 @@ namespace WebAppMVC.Models
     
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<Simcard> Simcards { get; set; }
-        public IEnumerable<object> Simcard { get; internal set; }
     }
 }
