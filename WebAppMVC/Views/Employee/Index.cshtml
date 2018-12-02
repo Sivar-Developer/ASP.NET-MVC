@@ -1,9 +1,13 @@
-﻿
+﻿@using System
+
 @{
     ViewBag.Title = "Employee List";
 }
 
 <h2>Employee CRUD Operations</h2>
+
+<h3>@Guid.NewGuid()</h3>
+<h3>@GetHashCode()</h3>
 
 <a class="btn btn-light" style="margin-bottom: 10px" onclick="PopupForm('@Url.Action("AddOrEdit", "Employee")')"> <i class="fa fa-plus"></i> Add New</a>
 
